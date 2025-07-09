@@ -145,6 +145,56 @@
 .join-btn:hover {
   background: #019875;
 }
+    .pay-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff9f43;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.payment-box {
+  background: #f1f1f1;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.pay-input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.pay-confirm {
+  padding: 10px 20px;
+  background-color: #00cec9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.upi-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #6c5ce7;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.upi-link:hover {
+  background-color: #4b4bbd;
+}
+  
 
   </style>
 </head>
@@ -204,6 +254,25 @@
 
       <strong>⏳ Duration:</strong> 3 to 4 months<br>
       <strong>💰 Fees:</strong> ₹800 only<br>
+      <button class="pay-btn" onclick="togglePayment()">💰 Pay ₹800</button>
+
+<div class="payment-box hidden" id="paymentBox">
+  <h3>Choose Payment Method</h3>
+
+  <div style="margin-bottom: 20px;">
+    <strong>💳 Card Payment (Demo)</strong><br>
+    <input type="text" placeholder="Card Number" class="pay-input"><br>
+    <input type="text" placeholder="Expiry MM/YY" class="pay-input"><br>
+    <input type="text" placeholder="CVV" class="pay-input"><br>
+    <button class="pay-confirm" onclick="confirmPayment()">Pay Now</button>
+  </div>
+
+  <div>
+    <strong>📲 UPI Payment:</strong><br>
+    <a href="upi://pay?pa=yourupi@upi&pn=DynamicLearn&am=800" class="upi-link">Click to Pay ₹800 via BHIM UPI</a>
+  </div>
+</div>
+
       <strong>🎯 Outcome:</strong> Ready for junior full-stack developer roles.
     </div>
 
@@ -243,6 +312,17 @@
       document.getElementById("javaDetail").classList.add("hidden");
       document.getElementById("courseBox").classList.remove("hidden");
     }
+
+    function togglePayment() {
+  const box = document.getElementById("paymentBox");
+  box.classList.toggle("hidden");
+}
+
+function confirmPayment() {
+  alert("✅ Payment successful! Thank you for enrolling.");
+  togglePayment();
+}
+
   </script>
 </body>
 </html>
